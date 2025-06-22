@@ -1,0 +1,60 @@
+/* #region import tailwindcss ==========>>>>>>>>>> ---start */
+/* @import "tailwindcss"; */
+
+/* @see https://ant.design/docs/react/compatible-style-cn#tailwindcss-%E6%8E%92%E5%B8%83-layer */
+@layer theme, base, antd, components, utilities;
+
+@import "tailwindcss";
+/* #endregion import tailwindcss ==========>>>>>>>>>> ---end */
+
+/* follow the official naming convention.
+/* @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
+/* NOTE
+/* 1. do not use [_] for variable concatenation
+/* it will not be recognized correctly after [tailwindcss → 4.0.9]
+/* 2. try not use uppercase letters as they might not be recognized.
+/* EG:
+/* [--abcd-efg-hlj-123] */
+@theme {
+}
+
+@utility raw-transition-none {
+  transition: none;
+}
+
+@layer components {
+}
+
+/* remove input background color for chrome autocomplete */
+/* @see https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete */
+/*
+  Note:
+  - The class naming concatenation rule is: Element Selector + Class Name + Pseudo-class/element.
+*/
+input.hide-input-autocomplete-background:-webkit-autofill {
+  -webkit-background-clip: text;
+  &:hover {
+    -webkit-background-clip: text;
+  }
+}
+/*
+    Note:
+    - When using @utility, element selectors within the @utility block are not effective.
+  */
+/* @utility hide-input-autocomplete-background {
+    input.hide-input-autocomplete-background:-webkit-autofill {
+      -webkit-background-clip: text;
+      &:hover {
+        -webkit-background-clip: text;
+      }
+    }
+  } */
+
+/* hide native password reveal and clear icons in Edge/IE */
+/* @see https://blog.csdn.net/qq_41872385/article/details/130850917 */
+input[type="password"].hide-input-password-icon::-ms-clear {
+  display: none;
+}
+input[type="password"].hide-input-password-icon::-ms-reveal {
+  display: none;
+}

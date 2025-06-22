@@ -1,0 +1,98 @@
+{
+  "files.autoSave": "off",
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "workbench.colorCustomizations": {
+    "editorWhitespace.foreground": "#fbff00"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // #region tailwindCSS ---start
+  "tailwindCSS.experimental.configFile": null,
+  "tailwindCSS.experimental.classRegex": [
+    // @see https://blog.csdn.net/qq_41614928/article/details/135962738
+    // → clsx("")
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    // → twMerge("")
+    ["twMerge\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    // @see https://github.com/tailwindlabs/tailwindcss-intellisense/issues/350#issuecomment-921740173
+    // →
+    // /* @tw */
+    // const XXX = "";
+    "/\\*\\s*@tw\\s*\\*/[^\"]+\"([^\"]*)\"",
+    // →
+    // /** @tw */
+    // const XXX = "";
+    "/\\**\\s*@tw\\s*\\*/[^\"]+\"([^\"]*)\"",
+    // →
+    // // @tw
+    // const XXX = "";
+    "//\\s*@tw\\s*const\\s*\\w+\\s*=\\s*\"([^\"]*)\"",
+    // @see https://github.com/paolotiu/tailwind-intellisense-regex-list?tab=readme-ov-file#typescript-or-javascript-variables-strings-or-arrays-with-keyword
+    // → XXXclasses = ""  XXXClasses = ""
+    [
+      "[cC]lasses\\s*(?::\\s*[^=]+)?\\s*=\\s*([^;]*);",
+      "['\"`]([^'\"`]*)['\"`]"
+    ],
+    // → XXXclassName = ""  XXXClassName = ""
+    [
+      "[cC]lassName\\s*(?::\\s*[^=]+)?\\s*=\\s*([^;]*);",
+      "['\"`]([^'\"`]*)['\"`]"
+    ]
+  ],
+  "tailwind-fold.autoFold": false,
+  // #endregion tailwindCSS ---end
+
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "icon": "bug",
+      "foreground": "#F56C6C",
+      "type": "line"
+    },
+    "FIXME": {
+      "icon": "flame",
+      "foreground": "#FF9800",
+      "type": "line"
+    },
+    "TODO": {
+      "foreground": "#FFEB38",
+      "type": "line"
+    },
+    "NOTE": {
+      "icon": "note",
+      "foreground": "#67C23A",
+      "type": "line"
+    },
+    "REVIEW": {
+      "icon": "tag",
+      "foreground": "#409EFF",
+      "type": "line"
+    },
+    "HACK": {
+      "icon": "versions",
+      "foreground": "#E040FB",
+      "type": "line"
+    },
+    "XXX": {
+      "icon": "unverified",
+      "foreground": "#E91E63",
+      "type": "line"
+    }
+  },
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "NOTE",
+    "REVIEW",
+    "XXX"
+  ],
+  "todo-tree.general.statusBar": "total"
+}
